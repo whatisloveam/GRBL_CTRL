@@ -1,0 +1,10 @@
+C:\Users\vladi\source\repos\ArduinoCommunication\GRBL_CTRL\bin\Debug\GRBL_CTRL.exe.config
+C:\Users\vladi\source\repos\ArduinoCommunication\GRBL_CTRL\bin\Debug\GRBL_CTRL.exe
+C:\Users\vladi\source\repos\ArduinoCommunication\GRBL_CTRL\bin\Debug\GRBL_CTRL.pdb
+C:\Users\vladi\source\repos\ArduinoCommunication\GRBL_CTRL\obj\Debug\GRBL_CTRL.csprojAssemblyReference.cache
+C:\Users\vladi\source\repos\ArduinoCommunication\GRBL_CTRL\obj\Debug\GRBL_CTRL.Form1.resources
+C:\Users\vladi\source\repos\ArduinoCommunication\GRBL_CTRL\obj\Debug\GRBL_CTRL.Properties.Resources.resources
+C:\Users\vladi\source\repos\ArduinoCommunication\GRBL_CTRL\obj\Debug\GRBL_CTRL.csproj.GenerateResource.cache
+C:\Users\vladi\source\repos\ArduinoCommunication\GRBL_CTRL\obj\Debug\GRBL_CTRL.csproj.CoreCompileInputs.cache
+C:\Users\vladi\source\repos\ArduinoCommunication\GRBL_CTRL\obj\Debug\GRBL_CTRL.exe
+C:\Users\vladi\source\repos\ArduinoCommunication\GRBL_CTRL\obj\Debug\GRBL_CTRL.pdb
