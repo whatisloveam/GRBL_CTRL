@@ -15,12 +15,15 @@ namespace GRBL_CTRL
     public partial class Form1 : Form
     {
         SerialPort port;
+        bool isConnected = false;
+        bool isPenDown = false;
 
         public Form1()
         {
             InitializeComponent();
             port = new SerialPort();
             port.BaudRate = 115200;
+            button1.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,7 +43,7 @@ namespace GRBL_CTRL
                 comboBox1.Items.Add(port);
             }
         }
-        bool isConnected = false;
+        
         private void conBtn_Click(object sender, EventArgs e)
         {
             if(isConnected == true) //disconnect
@@ -48,17 +51,32 @@ namespace GRBL_CTRL
                 port.Close();
                 conBtn.Text = "Connect";
                 conBtn.BackColor = Color.Green;
+                button1.Enabled = false;
             } else //connect
             {
-                if (comboBox1.SelectedItem.ToString() != "")
+                if (comboBox1.SelectedItem != null)
                 {
                     port.PortName = comboBox1.SelectedItem.ToString();
                     port.Open();
-                }
+                } else return;
                 conBtn.Text = "Disconnect";
                 conBtn.BackColor = Color.Red;
+                button1.Enabled = true;
             }
             isConnected = !isConnected;
+        }
+
+        private void penBtn_Click(object sender, EventArgs e)
+        {
+            if(isPenDown)
+            {
+                penBtn.Text = "penUp";
+            }
+            else
+            {
+                penBtn.Text = "penDown";
+            }
+            isPenDown = !isPenDown;
         }
     }
 }
