@@ -39,6 +39,8 @@
             this.rightBtn = new System.Windows.Forms.Button();
             this.downBtn = new System.Windows.Forms.Button();
             this.penBtn = new System.Windows.Forms.Button();
+            this.labelX = new System.Windows.Forms.Label();
+            this.labelY = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -104,6 +106,7 @@
             this.leftBtn.TabIndex = 6;
             this.leftBtn.Text = "left";
             this.leftBtn.UseVisualStyleBackColor = true;
+            this.leftBtn.Click += new System.EventHandler(this.leftBtn_Click);
             // 
             // upBtn
             // 
@@ -114,6 +117,7 @@
             this.upBtn.TabIndex = 7;
             this.upBtn.Text = "up";
             this.upBtn.UseVisualStyleBackColor = true;
+            this.upBtn.Click += new System.EventHandler(this.upBtn_Click);
             // 
             // rightBtn
             // 
@@ -124,6 +128,7 @@
             this.rightBtn.TabIndex = 8;
             this.rightBtn.Text = "right";
             this.rightBtn.UseVisualStyleBackColor = true;
+            this.rightBtn.Click += new System.EventHandler(this.rightBtn_Click);
             // 
             // downBtn
             // 
@@ -134,6 +139,7 @@
             this.downBtn.TabIndex = 9;
             this.downBtn.Text = "down";
             this.downBtn.UseVisualStyleBackColor = true;
+            this.downBtn.Click += new System.EventHandler(this.downBtn_Click);
             // 
             // penBtn
             // 
@@ -146,11 +152,33 @@
             this.penBtn.UseVisualStyleBackColor = true;
             this.penBtn.Click += new System.EventHandler(this.penBtn_Click);
             // 
+            // labelX
+            // 
+            this.labelX.AutoSize = true;
+            this.labelX.Font = new System.Drawing.Font("MV Boli", 28F, System.Drawing.FontStyle.Bold);
+            this.labelX.Location = new System.Drawing.Point(556, 21);
+            this.labelX.Name = "labelX";
+            this.labelX.Size = new System.Drawing.Size(113, 50);
+            this.labelX.TabIndex = 11;
+            this.labelX.Text = "X: 0";
+            // 
+            // labelY
+            // 
+            this.labelY.AutoSize = true;
+            this.labelY.Font = new System.Drawing.Font("MV Boli", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelY.Location = new System.Drawing.Point(554, 73);
+            this.labelY.Name = "labelY";
+            this.labelY.Size = new System.Drawing.Size(108, 49);
+            this.labelY.TabIndex = 12;
+            this.labelY.Text = "Y: 0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 485);
+            this.Controls.Add(this.labelY);
+            this.Controls.Add(this.labelX);
             this.Controls.Add(this.penBtn);
             this.Controls.Add(this.downBtn);
             this.Controls.Add(this.rightBtn);
@@ -182,6 +210,8 @@
         private System.Windows.Forms.Button rightBtn;
         private System.Windows.Forms.Button downBtn;
         private System.Windows.Forms.Button penBtn;
+        private System.Windows.Forms.Label labelX;
+        private System.Windows.Forms.Label labelY;
     }
 }
 

@@ -17,6 +17,7 @@ namespace GRBL_CTRL
         SerialPort port;
         bool isConnected = false;
         bool isPenDown = false;
+        double x, y;
 
         public Form1()
         {
@@ -77,6 +78,27 @@ namespace GRBL_CTRL
                 penBtn.Text = "penDown";
             }
             isPenDown = !isPenDown;
+        }
+
+        private void rightBtn_Click(object sender, EventArgs e)
+        {
+            x++;
+            labelX.Text = "X: " + x;
+        }
+        private void leftBtn_Click(object sender, EventArgs e)
+        {
+            x--;
+            labelX.Text = "X: " + x;
+        }
+        private void upBtn_Click(object sender, EventArgs e)
+        {
+            y--;
+            labelY.Text = "Y: " + y;
+        }
+        private void downBtn_Click(object sender, EventArgs e)
+        {
+            y++;
+            labelY.Text = "Y: " + y;
         }
     }
 }
