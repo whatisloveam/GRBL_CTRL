@@ -15,12 +15,18 @@ namespace GRBL_CTRL
 {
     public partial class Form1 : Form
     {
+        //192.168.31.16:7070
         SerialPort port;
         bool isConnected = false;
         bool isPenDown = false;
         double x, y;
         string message;
         string response;
+        private bool moveNext;
+        string[] lines;
+        private bool isExecuting;
+        int counter = 1;
+
         public Form1()
         {
             InitializeComponent();
@@ -75,10 +81,12 @@ namespace GRBL_CTRL
             if(isPenDown)
             {
                 penBtn.Text = "penUp";
+                send("M3S0\n");
             }
             else
             {
                 penBtn.Text = "penDown";
+                send("M3S40\n");
             }
             isPenDown = !isPenDown;
         }
@@ -103,13 +111,13 @@ namespace GRBL_CTRL
         }
         private void upBtn_Click(object sender, EventArgs e)
         {
-            y--;
+            y++;
             ChangeAndSendCoord();
         }
 
         private void downBtn_Click(object sender, EventArgs e)
         {
-            y++;
+            y--;
             ChangeAndSendCoord();            
         }
 
@@ -124,8 +132,6 @@ namespace GRBL_CTRL
 
         private void send(string cmd)
         {
-            
-            
             if (!isConnected)
             {
                 MessageBox.Show("Подключись!!!");
@@ -143,13 +149,27 @@ namespace GRBL_CTRL
 
             string filename = openFileDialog1.FileName;
             string fileText = System.IO.File.ReadAllText(filename);
-            string[] lines = fileText.Split('\n');
-            foreach(var line in lines)
-            {
-                send(line + '\n');
-            }
+            lines = fileText.Split('\n');
+            isExecuting = true;
+            send(lines[0] + '\n');
             
             //richTextBox1.Text = fileText;
+        }
+
+        private void unlock_btn_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text += "$x\n";
+            send("$x\n");
+        }
+
+        private void home_btn_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text += "$h\n";
+            send("$h\n");
+            x = 0;
+            y = 0;
+            labelX.Text = "X: 0";
+            labelY.Text = "Y: 0";
         }
 
         private void DataReceivedHandler(
@@ -159,7 +179,22 @@ namespace GRBL_CTRL
             SerialPort sp = (SerialPort)sender;
             //sp.ReadLine();
             string indata = sp.ReadExisting();
-            response = indata;
+            response += indata;
+            if(response.Contains("ok"))
+            {
+                response = "";
+                if(isExecuting)
+                {
+                    send(lines[counter] + '\n');
+                    if (counter == lines.Length - 1)
+                    {
+                        counter = 0;
+                        isExecuting = false;
+                    }
+                    counter++;
+                }
+                
+            }
             richTextBox1.Invoke((MethodInvoker)delegate
             {
                 richTextBox1.Text += indata;

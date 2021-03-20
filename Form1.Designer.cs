@@ -46,6 +46,8 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.open_btn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.unlock_btn = new System.Windows.Forms.Button();
+            this.home_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -223,11 +225,33 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // unlock_btn
+            // 
+            this.unlock_btn.Location = new System.Drawing.Point(452, 99);
+            this.unlock_btn.Name = "unlock_btn";
+            this.unlock_btn.Size = new System.Drawing.Size(75, 23);
+            this.unlock_btn.TabIndex = 17;
+            this.unlock_btn.Text = "Unlock";
+            this.unlock_btn.UseVisualStyleBackColor = true;
+            this.unlock_btn.Click += new System.EventHandler(this.unlock_btn_Click);
+            // 
+            // home_btn
+            // 
+            this.home_btn.Location = new System.Drawing.Point(452, 128);
+            this.home_btn.Name = "home_btn";
+            this.home_btn.Size = new System.Drawing.Size(75, 23);
+            this.home_btn.TabIndex = 18;
+            this.home_btn.Text = "Home";
+            this.home_btn.UseVisualStyleBackColor = true;
+            this.home_btn.Click += new System.EventHandler(this.home_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 482);
+            this.ClientSize = new System.Drawing.Size(726, 482);
+            this.Controls.Add(this.home_btn);
+            this.Controls.Add(this.unlock_btn);
             this.Controls.Add(this.open_btn);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
@@ -272,6 +296,8 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.Button open_btn;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button unlock_btn;
+        private System.Windows.Forms.Button home_btn;
     }
 }
 
